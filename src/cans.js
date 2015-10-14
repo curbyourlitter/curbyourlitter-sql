@@ -1,3 +1,5 @@
+import _ from 'underscore';
+
 import { fromCenterOfBBox, inBBox } from './bbox';
 
 export function getCanColumnsData(config) {
