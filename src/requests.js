@@ -41,6 +41,8 @@ export function getRequestColumnsDownload(config) {
 export function getRequestColumnsMap(config) {
     return [
         '*',
+        'ST_X(the_geom) AS longitude',
+        'ST_Y(the_geom) AS latitude',
         `(added AT TIME ZONE '${config.timezone}')::text AS date`
     ];
 }

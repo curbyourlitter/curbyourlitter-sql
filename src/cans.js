@@ -22,7 +22,11 @@ export function getCanColumnsDetails(config) {
 }
 
 export function getCanColumnsMap(config) {
-    return ['*'];
+    return [
+        '*',
+        'ST_X(the_geom) AS longitude',
+        'ST_Y(the_geom) AS latitude'
+    ];
 }
 
 function where(filters) {

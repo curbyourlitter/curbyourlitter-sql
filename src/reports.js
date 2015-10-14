@@ -45,6 +45,8 @@ export function getReportColumnsDownload(config) {
 export function getReportColumnsMap(config) {
     return [
         '*',
+        'ST_X(the_geom) AS longitude',
+        'ST_Y(the_geom) AS latitude',
         `(created_date AT TIME ZONE '${config.timezone}')::text AS date`
     ];
 }
