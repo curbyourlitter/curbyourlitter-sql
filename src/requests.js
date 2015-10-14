@@ -1,4 +1,7 @@
+import _ from 'underscore';
+
 import { fromCenterOfBBox, inBBox } from './bbox';
+import { execute } from './execute';
 
 export function getRequestColumnsData(config) {
     return [
@@ -97,9 +100,5 @@ export function getRequests(filters, yearRange, callback, columns, config) {
         bboxColumns.push(`${fromCenterOfBBox(filters.bbox)} AS center_distance`);
     }
 
-    var cartodbSql = new cartodb.SQL({ user: config.cartodbUser });
-    cartodbSql.execute(getRequestSql(filters, yearRange, bboxColumns, config))
-        .done(function (data) {
-            callback(data.rows);
-        });
+    execute(getRequestSql(filters, yearRange, bboxColumns, config), config.cartodbUser, callback);
 }

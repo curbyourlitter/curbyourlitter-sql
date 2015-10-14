@@ -1,6 +1,7 @@
 import _ from 'underscore';
 
 import { fromCenterOfBBox, inBBox } from './bbox';
+import { execute } from './execute';
 
 export function getCanColumnsData(config) {
     return [
@@ -56,9 +57,5 @@ export function getCans(filters, callback, columns, config) {
         bboxColumns.push(`${fromCenterOfBBox(filters.bbox)} AS center_distance`);
     }
 
-    var cartodbSql = new cartodb.SQL({ user: config.cartodbUser });
-    cartodbSql.execute(getCanSql(filters, bboxColumns, config))
-        .done(function (data) {
-            callback(data.rows);
-        });
+    execute(getCanSql(filters, bboxColumns, config), config.cartodbUser, callback);
 }
