@@ -1,0 +1,24 @@
+{
+  "name": "curbyourlitter-sql",
+  "version": "0.0.1",
+  "description": "SQL for Curb Your Litter",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel ./src -d lib",
+    "test": "mocha",
+    "watch": "babel ./src -d lib --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/curbyourlitter/curbyourlitter-sql.git"
+  },
+  "author": "Eric Brelsford <ebrelsford@gmail.com> (http://ebrelsford.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/curbyourlitter/curbyourlitter-sql/issues"
+  },
+  "homepage": "https://github.com/curbyourlitter/curbyourlitter-sql#readme",
+  "devDependencies": {
+    "babel": "^5.8.23"
+  }
+}
