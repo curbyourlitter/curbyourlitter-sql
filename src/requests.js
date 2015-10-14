@@ -90,6 +90,9 @@ export function getRequestSql(filters, yearRange, columns, config) {
     if (filters || yearRange) {
         sql += ` ${where(filters, yearRange)}`;
     }
+    if (config.mobile) {
+        sql += ` LIMIT ${config.mobileLimit}`;
+    }
     return sql;
 }
 

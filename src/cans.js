@@ -47,6 +47,9 @@ export function getCanSql(filters, columns, config) {
     if (filters) {
         sql += ` ${where(filters)}`;
     }
+    if (config.mobile) {
+        sql += ` LIMIT ${config.mobileLimit}`;
+    }
     return sql;
 }
 
