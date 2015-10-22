@@ -1,6 +1,6 @@
 {
   "name": "curbyourlitter-sql",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "SQL for Curb Your Litter",
   "main": "lib/index.js",
   "scripts": {
