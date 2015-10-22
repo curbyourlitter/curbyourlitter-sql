@@ -7,6 +7,8 @@ export function getCanColumnsData(config) {
     return [
         "'can' AS type",
         'cartodb_id',
+        'maintained_by',
+        'pick_up_schedule',
         'type AS cantype'
     ];
 }
@@ -15,6 +17,8 @@ export function getCanColumnsDetails(config) {
     return [
         "'can' AS type",
         'cartodb_id',
+        'maintained_by',
+        'pick_up_schedule',
         'type AS cantype',
         'ST_X(the_geom) AS longitude',
         'ST_Y(the_geom) AS latitude'
