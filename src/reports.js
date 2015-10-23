@@ -18,15 +18,16 @@ export function getReportColumnsData(config) {
 export function getReportColumnsDetails(config) {
     return [
         "'report' AS type",
-        'complaint_type',
-        'cartodb_id',
-        'descriptor',
-        'incident_address',
-        'intersection_street1',
-        'intersection_street2',
-        'ST_X(the_geom) AS longitude',
-        'ST_Y(the_geom) AS latitude',
-        `(created_date AT TIME ZONE '${config.timezone}')::text AS date`
+        'r.complaint_type',
+        'r.cartodb_id',
+        'r.descriptor',
+        'r.incident_address',
+        'r.intersection_street1',
+        'r.intersection_street2',
+        'ST_X(r.the_geom) AS longitude',
+        'ST_Y(r.the_geom) AS latitude',
+        `(r.created_date AT TIME ZONE '${config.timezone}')::text AS date`,
+        'c.description'
     ];
 }
 
@@ -92,6 +93,11 @@ export function getReportSql(filter, yearRange, columns, config) {
         sql += ` LIMIT ${config.mobileLimit}`;
     }
     return sql;
+}
+
+export function getReportSqlDetails(id, config) {
+    var columns = getReportColumnsDetails(config);
+    return `SELECT ${columns.join(',')} FROM ${config.tables.report} r LEFT JOIN ${config.tables.reportCodes} c ON r.descriptor = c.code WHERE r.cartodb_id = ${id}`;
 }
 
 export function getReports(filters, yearRange, callback, columns, config) {
