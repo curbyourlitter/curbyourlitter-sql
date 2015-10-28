@@ -22,6 +22,7 @@ export function getRequestColumnsDetails(config) {
         'image',
         'ST_X(the_geom) AS longitude',
         'ST_Y(the_geom) AS latitude',
+        'name',
         `(added AT TIME ZONE '${config.timezone}')::text AS date`
     ];
 }
