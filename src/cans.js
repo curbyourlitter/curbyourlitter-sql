@@ -7,6 +7,7 @@ export function getCanColumnsData(config) {
     return [
         "'can' AS type",
         'cartodb_id',
+        'location AS can_location',
         'maintained_by',
         'pick_up_schedule',
         'type AS cantype'
