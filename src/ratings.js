@@ -2,6 +2,7 @@ export function getRatingsColumnsDownload(config) {
     return [
         'ST_AsEWKT(streets.the_geom) AS the_geom',
         'streets.stname_lab AS street',
+        'streets.cross_streets AS cross_streets',
         'ratings.collected',
         'ratings.rating'
     ];
