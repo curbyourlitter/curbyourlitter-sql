@@ -90,7 +90,7 @@ export function getReportSql(filter, yearRange, columns, config) {
         sql += ` ${where(filter, yearRange)}`;
     }
     if (config.mobile) {
-        sql += ` LIMIT ${config.mobileLimit}`;
+        sql += ` ORDER BY created_date DESC LIMIT ${config.mobileLimit}`;
     }
     return sql;
 }
